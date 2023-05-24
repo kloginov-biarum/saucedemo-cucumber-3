@@ -17,7 +17,7 @@ Feature: Login
     When I push the Login button
     Then Error message with text "Sorry, this user has been locked out." is displayed
 
-  @unsexisting_user @login-3
+  @unexisting_user @login-3
   Scenario: Login with unexisting user
     Given I open Login page
     When I input "gjdshjcsdj" to username field
