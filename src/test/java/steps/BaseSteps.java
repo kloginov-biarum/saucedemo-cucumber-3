@@ -8,4 +8,5 @@ public class BaseSteps {
 
     InventoryPage inventoryPage = new InventoryPage();
 
+
 }
