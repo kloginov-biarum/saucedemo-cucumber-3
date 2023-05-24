@@ -17,9 +17,9 @@ Feature: Login
     When I push the Login button
     Then Error message with text "<errorMessageText>" is displayed
       Examples:
-        |username                    |errorMessageText                                     |
-        |locked_out_user             |Sorry, this user has been locked out.                |
-
+        |username                    |errorMessageText                                            |
+        |locked_out_user             |Epic sadface: Sorry, this user has been locked out.                       |
+        |gjdshjcsdj                  |Epic sadface: Username and password do not match any user in this service |
 
   @unexisting_user @login-3
   Scenario: Login with unexisting user
