@@ -9,8 +9,10 @@ Feature: Login
     When I push the Login button
     Then I am on the page Inventory
 
+
+
     @locked_out_user @login-2
-  Scenario Outline: Login with locked out user
+  Scenario Outline: Login with invalid user
     Given I open Login page
     When I input "<username>" to username field
     And input "secret_sauce" to password field
@@ -21,12 +23,27 @@ Feature: Login
         |locked_out_user             |Epic sadface: Sorry, this user has been locked out.                       |
         |gjdshjcsdj                  |Epic sadface: Username and password do not match any user in this service |
 
-  @unexisting_user @login-3
-  Scenario: Login with unexisting user
+
+      @login-3
+  Scenario Outline: Empty username
     Given I open Login page
-    When I input "gjdshjcsdj" to username field
+    When I input "<username>" to username field
+    And input "<password>" to password field
+    When I push the Login button
+    Then Error message with text "<errorMessageText>" is displayed
+     Examples:
+       | username |password     |errorMessageText                   |
+       |          |fschgdfcd    |Epic sadface: Username is required |
+       |svdsdcdc  |             |Epic sadface: Password is required |
+
+
+        @login-4
+  Scenario: Success Logout
+    Given I open Login page
+    When I input "standard_user" to username field
     And input "secret_sauce" to password field
     When I push the Login button
-    Then Error message with text "Username and password do not match any user in this service" is displayed
-
-
+    Then I am on the page Inventory
+    And I click on burger menu
+    When I follow the Logout link
+    Then I am on the page Login

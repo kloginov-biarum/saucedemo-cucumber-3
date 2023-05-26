@@ -11,6 +11,7 @@ import pages.LoginPage;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -42,5 +43,10 @@ public class LoginSteps extends BaseSteps{
     @Then("^Error message with text \"([^\"]*)\" is displayed$")
     public void errorMessageWithTextIsDisplayed(String expectedText)  {
         loginPage.errorMessage.shouldHave(text(expectedText));
+    }
+
+    @Then("^I am on the page Login$")
+    public void iAmOnThePageLogin() {
+        loginPage.loginButton.shouldBe(visible);
     }
 }
