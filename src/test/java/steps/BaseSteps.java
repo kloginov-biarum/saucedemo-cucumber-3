@@ -1,8 +1,6 @@
 package steps;
 
-import pages.InventoryPage;
-import pages.LoginPage;
-import pages.SideBar;
+import pages.*;
 
 public class BaseSteps {
     LoginPage loginPage = new LoginPage();
@@ -11,7 +9,11 @@ public class BaseSteps {
 
     SideBar sideBar = new SideBar();
 
+    CartPage cartPage = new CartPage();
 
+    CheckoutStepOnePage checkoutStepOnePage = new CheckoutStepOnePage();
 
+    CheckoutStepTwoPage checkoutStepTwoPage = new CheckoutStepTwoPage();
 
+    CheckoutCompletePage checkoutCompletePage = new CheckoutCompletePage();
 }

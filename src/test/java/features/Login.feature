@@ -1,9 +1,12 @@
-
+@login
 Feature: Login
+
+ # Background:
+ #   Given I open Login page
+
 
   @success_login @login-1
   Scenario: Success login
-    Given I open Login page
     When I input "standard_user" to username field
     And input "secret_sauce" to password field
     When I push the Login button
@@ -13,7 +16,6 @@ Feature: Login
 
     @locked_out_user @login-2
   Scenario Outline: Login with invalid user
-    Given I open Login page
     When I input "<username>" to username field
     And input "secret_sauce" to password field
     When I push the Login button
@@ -26,7 +28,6 @@ Feature: Login
 
       @login-3
   Scenario Outline: Empty username
-    Given I open Login page
     When I input "<username>" to username field
     And input "<password>" to password field
     When I push the Login button
@@ -39,7 +40,6 @@ Feature: Login
 
         @login-4
   Scenario: Success Logout
-    Given I open Login page
     When I input "standard_user" to username field
     And input "secret_sauce" to password field
     When I push the Login button

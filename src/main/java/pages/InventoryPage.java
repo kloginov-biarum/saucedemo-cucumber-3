@@ -12,4 +12,10 @@ public class InventoryPage {
 
     public SelenideElement burgerMenu = $(byId("react-burger-menu-btn"));
 
+    public SelenideElement backpackAddToCartButton = $(byId("add-to-cart-sauce-labs-backpack"));
+
+    public SelenideElement cartIcon = $(byId("shopping_cart_container"));
+
+
+
 }

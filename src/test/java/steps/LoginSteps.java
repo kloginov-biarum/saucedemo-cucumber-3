@@ -18,6 +18,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class LoginSteps extends BaseSteps{
 
+
     @Given("^I open Login page$")
     public void iOpenLoginPage() {
         System.setProperty("chromeoptions.args", "--remote-allow-origins=*");
@@ -49,4 +50,6 @@ public class LoginSteps extends BaseSteps{
     public void iAmOnThePageLogin() {
         loginPage.loginButton.shouldBe(visible);
     }
+
+
 }
